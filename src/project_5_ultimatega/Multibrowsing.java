@@ -45,12 +45,16 @@ public class Multibrowsing {
         String source = driver.getPageSource();
         System.out.println("Page source :" + source);
 
-        driver.findElement(By.className("ico-login")).click(); // Clicking on login link
-        WebElement emailIdField = driver.findElement(By.id("Email")); // Storing email fields
+        driver.findElement(By.id("user[email]")).click();
+        WebElement emailIdField = driver.findElement(By.id("user[email]")); // Storing email fields
         emailIdField.sendKeys("sdussooa@gmail.com"); // Sending keys to email id field
-        WebElement passwordField = driver.findElement(By.id("Password")); // Storing password field
+        driver.findElement(By.id("user[password]")).click();
+        WebElement passwordField = driver.findElement((By.id("user[password]"))); // Storing password field
         passwordField.sendKeys("Sd18071995"); // Sendkeys to password field
 
-        driver.close(); // Closing browser
+        // driver.findElement(By.cssSelector(".button.button-primary.g-recaptcha")).click();// click on sign in
+
+
+        driver.quit(); // Closing browser
     }
 }
